@@ -6,7 +6,9 @@
 
 body { font-family: "Roboto", sans-serif; 
 background-color: #FFFFFF ;
-color: #434455}
+color: #434455;
+
+}
 ul,
 ol { 
     list-style-type: none;
@@ -46,6 +48,8 @@ p {
 
 .hat {
     border-bottom: 1px solid #e7e9fc;
+        box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08),
+            0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 2px 1px 0 rgba(46, 47, 66, 0.08);
 }
 .hat-container {
     display: flex;
@@ -82,14 +86,35 @@ font-family: "Raleway", sans-serif;
     gap: 40px;
 }
 
+
+
 .navigation-link {
+display: block;
     padding: 24px 0;
-    display: block;
     font-weight: 500;
-        font-size: 16px;
-        line-height: 1.5;
-        letter-spacing: 0.02em;
-        color: #2e2f42;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #2e2f42;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navigation-link.current {
+    position: relative;
+}
+
+.navigation-link.current::after {
+    content: '';
+    
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+    
+        width: 100%;
+        height: 4px;
+        border-radius: 2px;
+    
+        background-color: #404bbf;
 }
 
 .contact { 
@@ -114,26 +139,34 @@ font-weight: 400;
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #434455;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 
 .navigation-link:hover,
 .navigation-link:focus,
 .contakt-link:hover,
 .contakt-link:focus {
-      color: #404bbf
+      color: #404bbf;
 }
 
-/* main*/
+/* ========main==========*/
 
-.main {
-     background: #2e2f42;
+.main {background: #2e2f42;
 padding: 188px 0;
-
+background-image: linear-gradient(180deg, rgba(46, 47, 66, 0.7) 0%, rgba(46, 47, 66, 0.7) 100%), url(../images/hero-bg.jpg);
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+max-width: 1440px;
+margin: 0 auto;
    }
 
 .main-container {
-   
     
+       
+ 
 }
 
 .main-title { 
@@ -162,7 +195,9 @@ padding: 188px 0;
         margin: 0 auto;
         font-family: "Roboto", sans-serif;
     cursor: pointer;
-     min-width: 169px}
+     min-width: 169px;
+    transition-duration: 300ms;
+    }
 
             .button:hover,
             .button:focus {
@@ -173,7 +208,7 @@ padding: 188px 0;
 
 /* ---features-- */
 .feaurest {
-    padding: 120px 0;
+    padding: 96px 0;
 }
    
   .features-container {
@@ -203,12 +238,13 @@ padding: 188px 0;
 }
 
 .features-title {
+
 font-weight: 500;
     font-size: 20px;
     line-height: 1.2;
     letter-spacing: 0.02em;
     color: #2e2f42;
-        margin-bottom: 8px;
+        margin: 8px auto;
 }
 
 
@@ -220,8 +256,21 @@ font-weight: 500;
     color: #434455;}
 
 
+        .features-item-icon {
+            background: #f4f4fd;
+            border: 1px solid #8e8f99;
+                border-radius: 4px;
+                width: 264px;
+                height: 112px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .features-icon {}
 
-    /*-----team---- */
+
+    /*=============TEAM============*/
 
     .team { background: #f4f4fd;
     padding-top: 120px;
@@ -271,11 +320,48 @@ padding-bottom: 120px;}
         letter-spacing: 0.02em;
         color: #434455;
         text-align: center;
+        margin-bottom: 8px;
      }
 
 .team-content {
-padding: 32px 0
+padding: 32px 16px
 }
+
+
+.team-icon-list {
+    display: flex;
+    gap: 24px;
+        justify-content: center;
+        align-items: center;
+}
+
+.team-icon-item {
+ height: 40px;
+    width: 40px;
+    /* width: calc((100% - 72px) / 4); */
+}
+
+.team-icon-link {
+   width: 100%;
+   height: 100%;
+display: flex;
+    background-color: #4d5ae5;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 300ms;
+}
+
+.team-icone {
+    fill: #4d5ae5;
+
+}
+
+.team-icon-link:hover,
+.team-icon-link:focus {
+background-color: #404bbf;
+}
+
 
 /* -----Portfolio------ */
 .portfolio {
@@ -325,17 +411,60 @@ padding: 32px 0
                 color: #434455;
         }
 
+        .portfolio-img-container {
+            position: relative;
+                overflow: hidden;
+        }
 
+           .overlay-container {
+               background-color: #4d5ae5;
+               position: absolute;
+               width: 100%;
+               height: 100%;
+               left: 0;
+               top: 0;
+               transform: translateY(100%);
+               padding: 40px 32px;
+               transition-duration: 300ms;
+           }
+
+.portfolio-item:hover  .overlay-container {
+    transform: translateY(0);
+    
+}
+
+.portfolio-item:hover {
+box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
+
+.overlay-txt {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #f4f4fd;
+} 
+
+        
         /* footer */
 
 .bottom {
       background: #2e2f42;
       padding: 100px 0;
   }
+.bottom-container {
+    display: flex;
+        gap: 120px;
+}
+
+.bottom-about {
+    max-width: 264px;
+}
 
  .logo-footer { 
     display: inline-block;
 margin-bottom: 16px; }
+
 
   .bottom-text {font-weight: 400;
     font-size: 16px;
@@ -353,3 +482,49 @@ font-weight: 700;
     text-transform: uppercase;
     color: #f4f4fd;
   }
+
+
+.bottom-social {
+    max-width: 208px;
+}
+
+.bottom-social-text {font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #fff;
+    margin-bottom: 16px;}
+
+.bottom-icon-list {
+    display: flex;
+        gap: 16px;
+        max-width: 208px;
+}
+
+.bottom-icon-item {
+    display: flex;
+        height: 40px;
+        width: 40px;
+        background-color: #4d5ae5;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+}
+
+.bottom-icon-link {
+    width: 100%;
+        height: 100%;
+        display: flex;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        transition-duration: 300ms;
+}
+
+.bottom-icone {
+fill: #4d5ae5;
+}
+
+.bottom-icon-item:hover {
+background-color: #31d0aa;
+}
