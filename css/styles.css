@@ -461,10 +461,11 @@ box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.1
   }
 .bottom-container {
     display: flex;
-    align-items: baseline,
+    align-items: baseline;
 }
 
 .bottom-about {
+    align-items: baseline;
     max-width: 264px;
     margin-right: 120px
 }
@@ -493,6 +494,7 @@ font-weight: 700;
 
 
 .bottom-social {
+    align-items: baseline;
     max-width: 208px;
     
 }
